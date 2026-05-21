@@ -1,0 +1,86 @@
+# General
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+
+# Virtual environments
+venv/
+ENV/
+env/
+.env
+.env.*
+
+# Local venv inside project
+Coding/venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+Thumbs.db
+
+# Logs
+*.log
+
+# Databases
+*.sqlite3
+
+# Keys and certificates (do NOT commit secrets)
+*.pem
+*.key
+*.p12
+*.jks
+*.pfx
+*.asc
+
+# Docker
+docker-compose.override.yml
+.env
+
+# Build artifacts
+*.class
+*.o
+*.so
+
+# Ignore compiled C extensions
+*.cpython-*.so
+
+# Misc
+coverage.xml
+reports/
+
+# NOTE: keep PROGRESS/ and CONCEPT/ committed; they are intentionally not ignored.

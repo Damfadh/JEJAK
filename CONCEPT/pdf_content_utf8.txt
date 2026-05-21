@@ -1,0 +1,1285 @@
+﻿Total pages: 44
+
+===== PAGE 1 =====
+ 
+ 
+UNIVERSITAS PERTAHANAN RI 
+ 
+ 
+RANCANG BANGUN APLIKASI STEGANOGRAFI MOBILE 
+UNTUK IDENTIFIKASI SUMBER KEBOCORAN DOKUMEN 
+RAHASIA MEDIA CETAK 
+ 
+ 
+ 
+PROPOSAL SKRIPSI 
+ 
+ 
+ZEFANYA SETO GANDHARA 320210401023 
+ 
+ 
+ 
+ 
+FAKULTAS SAINS DAN TEKNOLOGI PERTAHANAN 
+PROGRAM STUDI INFORMATIKA 
+ 
+BOGOR 2025 
+ 
+
+
+===== PAGE 2 =====
+ 
+ii 
+LEMBAR PERSETUJUAN PROPOSAL SKRIPSI 
+ 
+Nama : Zefanya Seto Gandhara 
+NIM : 320210401026 
+Program Studi : Informatika 
+Fakultas : Sains dan Teknologi Pertahanan 
+Judul Proposal Skripsi : Rancang Bangun Aplikasi Steganografi 
+Mobile untuk Identifikasi Sumber Kebocoran 
+Dokumen Rahasia Media Cetak 
+ 
+ 
+ 
+ 
+Dosen Pembimbing I, 
+Mengetahui, 
+Ketua Program Studi 
+Informatika 
+  
+Anindito, S.Kom., S.S., MTI., CHFI 
+NIDN 4719057801 
+Tanggal :     Januari 2024 
+Adam Mardamsyah, M.Han 
+Kolonel Inf NRP. 11940019450871 
+Tanggal :     Januari 2024 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 3 =====
+ 
+iii 
+LEMBAR PENGESAHAN PROPOSAL SKRIPSI 
+ 
+ 
+Nama : Zefanya Seto Gandhara 
+NIM : 320210401026 
+Program Studi : Informatika 
+Fakultas : Sains dan Teknologi Pertahanan 
+Judul Proposal Skripsi : Rancang Bangun Aplikasi Steganografi 
+Mobile untuk Identifikasi Sumber Kebocoran 
+Dokumen Rahasia Media Cetak 
+ 
+No Nama Tanda Tangan Tanggal 
+1 Dosen Pembimbing I: 
+Anindito, S.Kom., S.S., MTI., CHFI  
+NIDN. 4719057801 
+  
+2 Dosen Penguji I: 
+ 
+  
+3 Dosen Penguji II: 
+ 
+  
+4 Dosen Penguji III: 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 4 =====
+ 
+iv 
+DAFTAR ISI 
+ 
+LEMBAR PERSETUJUAN PROPOSAL SKRIPSI ...................................... ii 
+LEMBAR PENGESAHAN PROPOSAL SKRIPSI ....................................... iii 
+DAFTAR ISI ............................................................................................... iv 
+DAFTAR GAMBAR .................................................................................... vi 
+DAFTAR TABEL ........................................................................................ vii 
+DAFTAR SINGKATAN .............................................................................. viii 
+BAB I PENDAHULUAN .............................................................................. 1 
+1.1 Latar Belakang .............................................................................. 1 
+1.2 Rumusan Masalah ........................................................................ 3 
+1.3 Tujuan Penelitian .......................................................................... 3 
+1.4 Manfaat Penelitian ........................................................................ 3 
+1.4.1 Manfaat Teoritis ...................................................................... 4 
+1.4.2 Manfaat Praktis ...................................................................... 4 
+1.5 Batasan Masalah .......................................................................... 5 
+BAB II TINJAUAN PUSTAKA ..................................................................... 6 
+2.1 Steganografi ................................................................................. 6 
+2.2 Android Package Kit ..................................................................... 7 
+2.3 Dokumen Cetak Bersifat Rahasia ................................................. 7 
+2.4 Unified Modelling Language (UML) .............................................. 8 
+2.4.1 Use Case Diagram ................................................................. 9 
+2.4.2 Activity Diagram ................................................................... 10 
+2.4.3 Deployment Diagram ............................................................ 10 
+2.4.4 Class Diagram .......................................................................11 
+2.5 Rapid Application Development ...................................................11 
+2.6 Flutter .......................................................................................... 12 
+2.7 Python ......................................................................................... 13 
+2.8 Web Application .......................................................................... 14 
+2.9 Blackbox Testing ......................................................................... 14 
+2.10 Hasil Penelitian Terdahulu ....................................................... 15 
+
+===== PAGE 5 =====
+ 
+v 
+2.11 Kerangka Berpikir .................................................................... 21 
+BAB III METODOLOGI PENELITIAN ....................................................... 22 
+3.1 Metode dan Desain Penelitian .................................................... 22 
+3.2 Perencanaan Kebutuhan ............................................................ 23 
+3.2.1 Identifikasi Pengguna ........................................................... 23 
+3.2.2 Alat dan bahan ..................................................................... 24 
+3.2.3 Tempat dan Waktu Penelitian ............................................... 24 
+3.3 Perancangan Sistem................................................................... 26 
+3.3.1 Use Case Diagram ............................................................... 26 
+3.3.2 Activity Diagram ................................................................... 27 
+3.3.3 Deployment Diagram ............................................................ 30 
+DAFTAR PUSTAKA ................................................................................. 32 
+LAMPIRAN............................................................................................... 36 
+  
+
+===== PAGE 6 =====
+ 
+vi 
+DAFTAR GAMBAR 
+ 
+Bagan 2.1 Kerangka berfikir..................................................................... 21 
+Gambar 3.1 Use Case Diagram ............................................................... 26 
+Gambar 3.3 Activity Diagram Enkripsi ...................................................... 28 
+Gambar 3.4 Activity Diagram Dekripsi ..................................................... 29 
+Gambar 3.5 Deployment Diagram ........................................................... 31 
+ 
+  
+
+===== PAGE 7 =====
+ 
+vii 
+DAFTAR TABEL 
+ 
+Tabel 2.1 Notasi Activity Diagram ............................................................... 9 
+Tabel 2.2 Notasi Activity Diagram ............................................................. 10 
+Tabel 2.3 Notasi Deployment Diagram ..................................................... 10 
+Tabel 2.4 Notasi Class Diagram ................................................................11 
+Tabel 2.5 Penelitian Terdahulu ................................................................. 18 
+Tabel 3.1 Jadwal Penelitian ..................................................................... 25 
+  
+
+===== PAGE 8 =====
+ 
+viii 
+DAFTAR SINGKATAN 
+ 
+1. APK  : Android Package Kit 
+2. RAD  : Rapid Application Development 
+3. UML : Unified Modeling Language 
+4. LSB  : Least Significant Bit 
+5. CDP  : Copy Detection Pattern 
+6. QR  : Quick Response Code 
+7. CHFI  : Computer Hacking Forensic Investigator 
+8. SDK  : Software Development Kit 
+9. IDE  : Integrated Development Environment 
+10. UI  : User Interface 
+11. UX  : User Experience 
+12. API  : Application Programming Interface 
+13. RAM : Random Access Memory 
+14. PC  : Personal Computer 
+15. IMU  : Inertial Measurement Unit  
+
+===== PAGE 9 =====
+ 
+1 
+BAB I 
+PENDAHULUAN 
+1.1 Latar Belakang 
+ Dalam era digital yang berkembang pesat, informasi menjadi aset 
+yang sangat berharga bagi individu, organisasi, maupun pemerintah. Di 
+tengah kemajuan teknologi digital yang memungkinkan penyebaran 
+informasi secara luas dan cepat, perlindungan terhadap sepe rti media 
+cetak, masih menjadi tantangan besar (Shirali-Shahreza, 2009). Meskipun 
+teknologi digital telah memberikan berbagai kemudahan dalam pengelolaan 
+informasi, dokumen cetak tetap memiliki peran penting dalam berbagai 
+bidang, mulai dari administrasi pemerintahan hingga keperluan pribadi 
+seperti dokumen identitas  (Adjaoute, 2021). Namun, dokumen fisik sering 
+kali rentan terhadap kebocoran akibat kelalaian pemilik atau kurangnya 
+sistem perlindungan yang memadai. Risiko kebocoran ini dapat 
+menimbulkan konsekuensi serius, baik dalam bentuk penyalahgunaan data 
+pribadi maupun kerugian strategis (Mayer et al., 2021). 
+Salah satu masalah utama yang muncul adalah sulitnya melacak 
+sumber kebocoran dokumen rahasia yang telah jatuh ke tangan yang tidak 
+berwenang. Banyak dokumen rahasia yang seharusnya dikelola dengan 
+aman malah dibuang sembarangan atau digunakan kembali untu k 
+keperluan lain, sehingga memungkinkan pihak tak berwenang untuk 
+mengakses informasi sensitif  (Saleem & Naveed, 2020) . Ketika dokumen 
+ini mengandung informasi sensitif, seperti data pribadi atau informasi 
+strategis, kebocoran tersebut dapat menimbulkan kerugian yang signifikan 
+(Thomas et al., 2019) . Contohnya, kasus kebocoran dokumen seperti 
+penggunaan dokumen rahasia sebagai bungkus makanan menunjukkan 
+lemahnya pengelolaan dokumen cetak rahasia (Devi Setya, 2021). 
+Fenomena ini menimbulkan kebutuhan mendesak akan sistem yang tidak 
+hanya melindungi dok umen tetapi juga mampu mengidentifikasi sumber 
+kebocoran secara efektif (Neto et al., 2021). 
+
+===== PAGE 10 =====
+2 
+Universitas Pertahanan Republik Indonesia 
+Kasus kebocoran dokumen seperti ini telah terjadi berulang kali dan 
+menimbulkan dampak nyata. Salah satu contoh yang banyak disorot adalah 
+insiden pada Desember 2021, ketika dokumen pribadi milik mantan Menteri 
+Kelautan dan Perikanan, Susi Pudjiastuti, dit emukan digunakan sebagai 
+bungkus gorengan (Devi Setya, 2021). Selain kebocoran dokumen pribadi, 
+kasus pembajakan dokumen seperti buku cetak juga menjadi masalah 
+serius. Buku -buku yang dilindungi oleh hak cipta sering kali dibajak, 
+diperbanyak tanpa izin, d an dijual secara ilegal. Menurut laporan 
+Kementerian Pendidikan dan Kebudayaan, industri buku di Indonesia 
+mengalami kerugian signifikan akibat pembajakan yang sulit dilacak 
+sumbernya. Misalnya, buku pelajaran sekolah sering kali menjadi target 
+pembajakan, di mana salinan tidak resmi dijual dengan harga lebih murah 
+di pasaran (Kompas, 2022).  Fenomena ini tidak hanya merugikan penulis 
+dan penerbit tetapi juga melemahkan perlindungan hak cipta dan 
+kredibilitas dokumen asli. 
+Sebagai respons terhadap permasalahan ini, penelitian ini 
+menawarkan solusi berbasis teknologi steganografi. Dengan metode ini, 
+informasi unik dapat disisipkan secara tersembunyi ke dalam elemen visual 
+dokumen, seperti teks atau gambar, tanpa menimbulkan kecurigaan (Khalaf 
+& Lakhtaria, 2024). Informasi tersembunyi ini dapat berfungsi sebagai tanda 
+pengenal yang memungkinkan pelacakan sumber kebocoran dokumen. 
+Dengan menggunakan aplikasi khusus, informasi yang disisipkan dapat 
+didekodekan oleh pihak berwenang melalui kamera smartphone. 
+Pendekatan ini tidak hanya memberikan lapisan perlindungan tambahan 
+pada dokumen rahasia tetapi juga mendukung upaya identifikasi 
+kebocoran, sehingga memudahkan penelusuran pelaku dan mencegah 
+kerugian lebih lanjut  (Evsutin et al., 2020) . Dengan sistem ini, pengguna 
+dapat mengelola dokumen sensitif dengan lebih aman, mengurangi risiko 
+kebocoran data, dan memastikan privasi tetap terjaga, bahkan ketika 
+dokumen telah berpindah tangan. 
+ 
+
+===== PAGE 11 =====
+3 
+Universitas Pertahanan Republik Indonesia 
+1.2 Rumusan Masalah 
+ Berdasarkan latar belakang, ditemukan beberapa poin rumusan 
+masalah dalam penelitian ini yaitu sebagai berikut: 
+a. Bagaimana metode steganografi dapat dirancang dan 
+diterapkan pada dokumen cetak untuk menyisipkan informasi 
+rahasia yang dapat digunakan sebagai identifikasi sumber 
+kebocoran? 
+b. Bagaimana aplikasi mobile dapat dirancang untuk mendeteksi 
+dan mendekripsi informasi tersembunyi dalam dokumen cetak 
+guna mengidentifikasi sumber kebocoran? 
+c. Bagimana efektivitas penerapan teknologi steganografi dalam 
+mendukung upaya identifikasi sumber kebocoran dokumen 
+rahasia yang digunakan secara tidak semestinya? 
+ 
+1.3 Tujuan Penelitian 
+ Berdasarkan latar belakang, ditemukan beberapa poin tujuan 
+penelitian dalam penelitian ini yaitu sebagai berikut: 
+a. Mengembangkan metode steganografi yang dapat diterapkan 
+pada dokumen cetak untuk menyisipkan informasi rahasia 
+yang berfungsi sebagai tanda identifikasi sumber kebocoran. 
+b. Merancang dan mengembangkan aplikasi mobile yang 
+mampu mendeteksi dan mendekripsi informasi tersembunyi 
+pada dokumen cetak untuk mengidentifikasi sumber 
+kebocoran. 
+c. Mengevaluasi efektivitas teknologi steganografi dalam 
+membantu identifikasi dan pelacakan sumber kebocoran 
+dokumen rahasia media cetak. 
+ 
+1.4 Manfaat Penelitian 
+ Berdasarkan latar belakang, ditemukan beberapa poin manfaat 
+penelitian dalam penelitian ini yaitu sebagai berikut: 
+
+===== PAGE 12 =====
+4 
+Universitas Pertahanan Republik Indonesia 
+1.4.1 Manfaat Teoritis 
+a. Penelitian ini akan memberikan kontribusi pada 
+pengembangan teori steganografi, khususnya dalam 
+aplikasinya pada dokumen cetak. Hasil penelitian ini 
+diharapkan dapat memperkaya pemahaman mengenai 
+penerapan steganografi di luar media digital dan 
+memberikan perspektif baru dalam melindungi informasi 
+sensitif pada dokumen fisik. 
+b. Penelitian ini juga dapat memperdalam teori mengenai 
+sistem keamanan informasi, khususnya dalam konteks 
+perlindungan dokumen cetak, serta memperkenalkan 
+metode baru yang dapat mengidentifikasi kebocoran 
+informasi melalui teknologi steganografi. 
+ 
+1.4.2 Manfaat Praktis 
+a. Penelitian ini dapat memberikan solusi praktis dalam 
+melindungi informasi sensitif yang terdapat pada 
+dokumen cetak, dengan menggunakan metode 
+steganografi yang tersembunyi dan tidak terlihat oleh 
+mata telanjang. Hal ini akan membantu individu atau 
+organisasi dalam menjaga kerahasiaan data pribadi atau 
+informasi penting yang tercetak dalam dokumen fisik. 
+b. Penelitian ini menyediakan solusi yang mudah diakses 
+oleh pengguna. Aplikasi ini dapat digunakan untuk 
+memverifikasi keaslian dokumen dan melacak kebocoran 
+informasi, sehingga meningkatkan tingkat keamanan 
+dokumen di berbagai sektor. 
+c. Dengan memanfaatkan teknologi steganografi, dokumen 
+yang bocor dapat dilacak kembali ke pemilik sahnya, 
+memberikan tindakan preventif dan mengurangi potensi 
+penyalahgunaan data. 
+
+===== PAGE 13 =====
+5 
+Universitas Pertahanan Republik Indonesia 
+1.5 Batasan Masalah 
+ Berdasarkan permasalahan yang ditemui oleh peneliti , ditemukan 
+beberapa poin yang akan menjadi masuk dalam batasan masalah 
+penelitian ini yaitu sebagai berikut: 
+a. Penelitian ini hanya akan fokus pada dokumen yang 
+tersimpan dalam bentuk media cetak, seperti dokumen kertas, 
+dan tidak akan membahas perlindungan terhadap dokumen 
+digital atau data yang telah diubah menjadi format elektronik 
+sebelumnya. 
+b. Penelitian ini membatasi penggunaan pemindai pada kamera 
+handphone. Tidak akan membahas penggunaan pemindai 
+profesional atau perangkat lain yang lebih canggih. 
+c. Dokumen cetak yang digunakan dalam penelitian ini hanya 
+berasal dari printer standar, yang umumnya digunakan oleh 
+individu atau kantor kecil untuk pencetakan dokumen sehari -
+hari. Penelitian ini tidak akan mencakup penggunaan printer 
+atau alat pencetak khus us yang memiliki kemampuan cetak 
+tingkat tinggi atau kualitas lebih tinggi. 
+
+===== PAGE 14 =====
+ 
+6 
+BAB II 
+TINJAUAN PUSTAKA 
+ 
+2.1 Steganografi 
+ Steganografi adalah ilmu keamanan informasi yang 
+menyembunyikan data rahasia dalam media pembawa seperti gambar, 
+teks, atau audio tanpa merusak strukturnya (Johnson & Jajodia, 1998) .  
+Berbeda dengan kriptografi yang mengubah data menjadi tidak terbaca, 
+steganografi menyembunyikan keberadaan data itu sendiri (Anderson & 
+Petitcolas, 1998). Metode ini sering digunakan bersama kriptografi untuk 
+meningkatkan keamanan (Provos et al., 2003). Metode umum steganografi 
+adalah Least Significant Bit (LSB), di mana data disisipkan pada bit terkecil 
+dari media host seperti citra digital. Teknik populer seperti Least Significant 
+Bit embedding menyisipkan data pada bit -bit terkecil piksel gambar tanpa 
+mengurangi kualitas visualnya (Hamid et al., 2012).  
+Teknologi Machine Learning kini membuka peluang untuk membuat 
+algoritma yang lebih adaptif dan efisien  untuk a plikasi modern meliputi 
+perlindungan data pribadi, watermarking digital, dan pengamanan dokumen 
+rahasia (Bandyopadhyay et al., n.d.) . Namun, teknik ini juga berpotensi 
+disalahgunakan untuk komunikasi ilegal. Dalam media cetak, steganografi 
+dapat menyisipkan tanda air digital ke elemen visual dokumen, 
+memudahkan pelacakan kebocoran informasi (Khalaf & Lakhtaria, 2024) . 
+Steganografi terus berkembang sebagai solusi perlindungan data dengan 
+potensi besar, termasuk untuk dokumen cetak.  Namun, Implementasi 
+steganografi dalam aplikasi mobile memiliki tantangan seperti keterbatasan 
+sumber daya perangkat dan kompatibilitas format media.  Penelitian lebih 
+lanjut diperlukan untuk menghadapi tantangan dan memanfaatkan 
+teknologi baru dalam bidang ini. 
+ 
+
+===== PAGE 15 =====
+7 
+Universitas Pertahanan Republik Indonesia 
+2.2 Android Package Kit 
+ Andoid Package Kit (APK)  merupakan format file yang digunakan 
+untuk mendistribusikan dan menginstal aplikasi pada platform Android. 
+Penelitian terkait APK mencakup berbagai aspek seperti performa aplikasi, 
+keamanan, analisis data, dan integrasi perangkat keras. Sebuah file APK 
+mencakup semua elemen yang diperlukan untuk menjalankan aplikasi . 
+Huai menunjukkan bagaimana APK dapat dirancang untuk 
+mengintegrasikan data dari berbagai sensor, seperti kamera dan unit 
+pengukuran inersia (IMU), dalam aplikasi berbasis augmented reality (AR) 
+(Huai et al., 2019) . Penelitian ini menggarisbawahi potensi besar APK 
+dalam memadukan perangkat keras dan perangkat lunak untuk 
+menciptakan luasnya pengalaman pengguna. 
+ Selain itu, APK juga memiliki aplikasi  dengan sensor yang cukup 
+baik dalam berbagai bidang. Penelitian tentang pengukuran detak jantung 
+menggunakan kamera Android menunjukkan bagaimana teknologi ini dapat 
+dimanfaatkan untuk pemrosesan data real-time dalam skenario kesehatan, 
+dengan memanfaatkan kamera sebagai sensor photoplethysmography 
+(Hoan et al., 2017) . Penelitian terkait APK membuktikan peran pentingnya 
+dalam pengembangan aplikasi Android. Tidak hanya sebagai alat distribusi 
+aplikasi, APK juga menjadi fondasi inovasi di berbagai bidang, termasuk 
+forensik digital, kesehatan, dan augmented reality. Penelit ian lebih lanjut 
+diperlukan untuk mengatasi tantangan yang ada sekaligus memanfaatkan 
+peluang baru yang ditawarkan oleh teknologi ini. 
+  
+2.3 Dokumen Cetak Bersifat Rahasia 
+ Dokumen cetak yang bersifat rahasia memiliki peran penting dalam 
+berbagai bidang, seperti pemerintahan, militer, dan sektor bisnis. Meskipun 
+teknologi digital telah menggantikan sebagian besar dokumen fisik, 
+dokumen cetak tetap digunakan untuk berbagai ke butuhan yang 
+memerlukan autentikasi manual atau dokumentasi resmi. Menurut Shirali, 
+dokumen cetak sering kali lebih sulit untuk dimodifikasi tanpa jejak 
+
+===== PAGE 16 =====
+8 
+Universitas Pertahanan Republik Indonesia 
+dibandingkan dokumen digital, sehingga tetap relevan untuk keperluan 
+strategis (Shirali & Shahreza, 2009) . Namun, kerentanannya terhadap 
+pencurian, duplikasi, atau penggunaan ulang yang tidak sah menjadi 
+tantangan utama dalam perlindungan dokumen cetak.   
+ Dalam rangka melindungi dokumen rahasia, peraturan seperti 
+Peraturan Menteri Pertahanan Nomor 02 Tahun 2015 dan Peraturan 
+Menteri Pertahanan Nomor 01 Tahun 2023 menegaskan pentingnya 
+pengelolaan informasi dan dokumentasi secara sistematis. Peraturan ini 
+mengatur pengumpulan, klasifikasi, dan pendokumentasian informasi 
+dengan pendekatan keamanan yang ketat, khususnya untuk dokumen 
+bersifat rahasia. Dalam Peraturan Menteri Pertahanan Nomor 68 Tahun 
+2014 ditegaskan Setiap satuan di lingkungan Kementerian Pertahanan dan 
+Tentara Nasional Indonesia diharapkan melaksanakan pencadangan data 
+secara rutin sesuai dengan metode standar keamanan informasi, dengan 
+memastikan data cadangan disimpan di lokasi yang terpisah. 
+ Identifikasi sumber kebocoran dokumen dapat dilakukan dengan 
+menanamkan metadata unik pada setiap salinan dokumen . Salah satu 
+metode yang disarankan oleh Khalaf adalah menggunakan teknologi 
+steganografi untuk menyisipkan informasi rahasia ke dalam elemen visual 
+dokumen cetak (Khalaf & Lakhtaria, 2024) . Teknologi ini tidak hanya 
+melindungi isi dokumen tetapi juga memungkinkan pelacakan sumber 
+kebocoran jika dokumen jatuh ke tangan yang tidak berwenang. 
+ 
+2.4 Unified Modelling Language (UML)  
+ Unified Modelling Language (UML) merupakan standar industri 
+untuk memodelkan sistem perangkat lunak. Penggunaannya mencakup 
+desain, analisis, dan dokumentasi sistem berbasis perangkat lunak. 
+Menurut Gomaa, UML memberikan pendekatan visual untuk merancang 
+software product lines, memungkinkan pengel olaan varian produk secara 
+efektif dan efisien (Gomaa, 2005). Dengan elemen -elemen diagram yang 
+terstandarisasi, UML mendukung representasi struktural dan perilaku 
+
+===== PAGE 17 =====
+9 
+Universitas Pertahanan Republik Indonesia 
+sistem, yang membantu pengembang dalam memahami kebutuhan dan 
+desain secara lebih terstruktur. 
+ Unified Modeling Language (UML) adalah alat bantu visual yang 
+digunakan untuk merancang dan mendokumentasikan sistem perangkat 
+lunak (Ciccozzi et al., 2019). UML menyediakan berbagai diagram, seperti 
+Use Case Diagram untuk memetakan interaksi antara pengguna dan 
+sistem, Class Diagram untuk menggambarkan struktur data, dan Sequence 
+Diagram untuk menunjukkan alur proses dalam sistem. Dalam penelitian 
+ini, UML m embantu dalam mendesain alur kerja aplikasi steganografi 
+mobile, mulai dari pengunggahan dokumen, proses penyisipan informasi 
+rahasia, hingga identifikasi kebocoran dokumen. 
+ 
+ 
+2.4.1 Use Case Diagram 
+Tabel 2.1 Notasi Activity Diagram 
+No Jenis Node Nama Node Keterangan 
+1 
+ 
+Actor 
+Orang, sistem, atau alat 
+2  Use case 
+Interaksi yang ada  pada 
+sistem  
+3  Association 
+Penghubung aktor dengan 
+use case 
+sumber : diolah oleh peneliti 
+ 
+ 
+ 
+ 
+
+
+===== PAGE 18 =====
+10 
+Universitas Pertahanan Republik Indonesia 
+2.4.2 Activity Diagram 
+Tabel 2.2 Notasi Activity Diagram 
+No Jenis Node Nama Node Keterangan 
+1 
+ 
+Object node 
+Entitas yang menjadi bagian dari 
+sebuah sistem 
+2 
+ 
+Action Node 
+Aktivitas dalam sistem yang 
+dinyatakan dengan kata kerja, 
+digunakan untuk memproses 
+objek dan menghasilkan output. 
+3  Initial Node 
+Node kontrol yang menandai titik 
+awal dari jalannya alur dalam 
+diagram aktivitas. 
+4  Final Node 
+Node kontrol yang menunjukkan 
+titik akhir dari alur pada diagram 
+aktivitas. 
+5  Connector 
+Elemen penghubung yang 
+merepresentasikan jalannya alur 
+objek dalam diagram aktivitas. 
+sumber : diolah oleh peneliti  
+ 
+ 
+2.4.3 Deployment Diagram 
+Tabel 2.3 Notasi Deployment Diagram 
+No Jenis Node Nama Node Keterangan 
+1 
+ 
+Node 
+Representasi elemen fisik, 
+seperti server, perangkat 
+keras, atau perangkat lunak. 
+
+===== PAGE 19 =====
+11 
+Universitas Pertahanan Republik Indonesia 
+2  Artifact 
+File atau modul perangkat 
+lunak yang ditempatkan di 
+dalam node. 
+3  Association 
+Jalur komunikasi antara dua 
+node, menunjukkan koneksi 
+antar komponen. 
+sumber : diolah oleh peneliti 
+ 
+2.4.4 Class Diagram 
+Tabel 2.4 Notasi Class Diagram 
+No Jenis Node Nama Node Keterangan 
+1 
+ 
+Class 
+Representasi dari suatu kelas 
+yang berisi atribut dan metode. 
+2  Association 
+Hubungan antara dua kelas 
+yang menunjukkan relasi dasar. 
+sumber : diolah oleh peneliti 
+ 
+ 
+2.5 Rapid Application Development 
+ Rapid Application Development (RAD) merupakan pendekatan 
+pengembangan perangkat lunak yang menekankan kecepatan dan efisiensi 
+dalam proses pengembangan. Metode ini melibatkan iterasi cepat dan 
+prototipe yang dapat langsung diuji oleh pengguna, sehingga 
+memungkinkan pengembang untuk merespons umpan ba lik dengan lebih 
+cepat. Nurman dan Kusuma menggunakan metode RAD dalam 
+pengembangan sistem informasi laporan online . Studi ini menunjukkan 
+bagaimana RAD dapat mempercepat pengembangan sekaligus 
+memastikan sistem yang sesuai dengan kebutuhan pengguna  (Nurman 
+Hidayat & Kusuma Hati, 2021).   
+
+
+===== PAGE 20 =====
+12 
+Universitas Pertahanan Republik Indonesia 
+ Rapid Application Development (RAD) adalah metode 
+pengembangan perangkat lunak yang berfokus pada fleksibilitas dalam 
+menyesuaikan kebutuhan pengguna  (Kosasi & Eka Yuliani, 2015) . 
+Pendekatan ini melibatkan pembuatan prototipe aplikasi secara cepat dan 
+iteratif sehingga memungkinkan pengguna memberikan umpan balik 
+langsung untuk perbaikan. Dengan RAD, pengembang dapat mengurangi 
+waktu pengembangan sekaligus meningkatkan kepuasan pe ngguna akhir 
+(Gunawan & Sutomo, 2023) . Dalam penelitian ini, RAD digunakan untuk 
+merancang aplikasi steganografi secara cepat, termasuk pengujian fitur 
+utama seperti penyisipan dan pengambilan data rahasia dari media cetak 
+digital. Secara keseluruhan, RAD adalah metode yang efektif untuk 
+menghasilkan perangkat lunak dalam waktu singkat tanpa mengorbankan 
+kualitas. Dengan fokus pada iterasi cepat dan umpan balik pengguna, 
+metode ini telah terbukti berhasil di berbagai aplikasi, mulai dari sistem 
+informasi hingga pengembangan web berbasis organisasi. 
+ 
+2.6 Flutter 
+ Flutter adalah framework pengembangan aplikasi lintas platform 
+yang dirancang oleh Google untuk mempermudah pembuatan antarmuka 
+pengguna yang menarik dan responsif. Framework ini memungkinkan 
+pengembang untuk menulis satu basis kode yang dapat dijalankan d i 
+berbagai platform, seperti Android, iOS, web, dan desktop. Wenhao 
+membandingkan Flutter dengan React Native, menyoroti efisiensi 
+pengembangan dan kemudahan penggunaannya (Wu, 2018). Flutter 
+unggul dalam menghasilkan antarmuka yang konsisten di berbagai 
+platform, membuatnya ideal untuk pengembangan aplikasi lintas platform  
+(Boukhary & Colmenares, 2019).  
+ Flutter menawarkan keunggulan seperti fitur Hot Reload, yang 
+memungkinkan pengembang melihat perubahan kode secara langsung, 
+serta penggunaan widget sebagai elemen dasar dalam membangun 
+antarmuka pengguna yang menarik dan responsif  (Dagne, 2019) . 
+
+===== PAGE 21 =====
+13 
+Universitas Pertahanan Republik Indonesia 
+Penelitian ini menunjukkan bagaimana Flutter dapat digunakan untuk 
+aplikasi yang memerlukan interaksi real -time dan antarmuka pengguna 
+yang responsif. Flutter telah membuktikan dirinya sebagai alat yang andal 
+dan fleksibel untuk pengembangan aplikasi linta s platform. Dengan fitur 
+seperti hot reload dan widget yang dapat disesuaikan, Flutter 
+memungkinkan pengembang untuk menciptakan aplikasi berkualitas tinggi 
+dengan waktu pengembangan yang lebih singkat. 
+ 
+2.7 Python 
+ Python adalah bahasa pemrograman tingkat tinggi yang populer 
+karena kesederhanaan sintaksnya dan fleksibilitas penggunaannya di 
+berbagai bidang, termasuk pengolahan data, kecerdasan buatan, dan 
+pengembangan aplikasi web. Qi memperkenalkan "Stanza," sebuah toolkit 
+pemrosesan bahasa alami berbasis Python yang mendukung 66 bahasa 
+manusia (Qi et al., 2020) . Studi ini menyoroti kemampuan Python untuk 
+menangani aplikasi pemrosesan bahasa alami yang kompleks dengan 
+pendekatan pipeline neural yang fleksibel dan efisien. Python adalah 
+bahasa pemrograman serbaguna yang banyak digunakan karena 
+kemudahan sintaksis dan pustaka yang kaya (Chapman & Stolee, 2016). 
+ Python juga dikenal karena kontribusinya dalam sains data dan 
+pembelajaran mesin. Dokumentasi resmi Python (2006) menjelaskan 
+bagaimana pustaka bawaan dan ekosistem yang luas memungkinkan 
+pengembang untuk memanfaatkan Python dalam berbagai skenario, mulai 
+dari pemrosesan data hingga integrasi dengan sistem besar. Dengan 
+dukungan komunitas yang besar dan ekosistem pustaka yang kaya, Python 
+terus menjadi pilihan utama untuk pengembangan perangkat lunak modern. 
+Kemampuannya untuk beradaptasi dengan cepat terh adap kebutuhan 
+teknologi menjadikannya salah satu bahasa pemrograman yang paling 
+relevan di era digital saat ini. Dalam menajalankan program python, 
+digunakan beberapa library yaitu. 
+ 
+
+===== PAGE 22 =====
+14 
+Universitas Pertahanan Republik Indonesia 
+2.8 Web Application 
+ Aplikasi web merupakan komponen utama dalam era digital yang 
+terus berkembang, menawarkan aksesibilitas lintas platform melalui 
+browser. Web Application adalah aplikasi yang berjalan di atas platform 
+berbasis web dan dapat diakses melalui browser tanpa memerlukan 
+instalasi. Keunggulan Web App lication meliputi aksesibilitas yang luas, 
+pembaruan otomatis, dan kompatibilitas lintas platform (Jobe, 2013). Dalam 
+konteks aplikasi mobile, Serrano membahas perbandingan antara aplikasi 
+web dan aplikasi native, menyoroti potensi HTML5 dalam menciptakan 
+aplikasi web yang responsif dan dinamis (Serrano et al., 2013). 
+Pengujian aplikasi web juga menjadi fokus penting dalam penelitian, 
+mencakup tantangan teknis seperti skalabilitas, kompatibilitas, dan 
+keamanan. Dalam penelitian ini, Web Application dapat digunakan sebagai 
+platform untuk mengakses, memverifikasi, atau memproses dokumen 
+rahasia yang dilindungi oleh aplikasi steganografi. Dengan integrasi Web 
+App, pengguna dapat mengelola dokumen rahasia secara efisien, baik 
+untuk tujuan identifikasi s umber kebocoran maupun untuk menyimpan 
+metadata terkait keamanan dokumen.  Dengan berkembangnya teknologi 
+dan meningkatnya kompleksitas aplikasi, penelitian tentang aplikasi web 
+terus memberikan wawasan berharga untuk memastikan keamanan, 
+fungsionalitas, dan efisiensi (Do╟ºan et al., 2014). 
+ 
+2.9 Blackbox Testing 
+ Blackbox testing adalah pendekatan pengujian perangkat lunak 
+yang fokus pada validasi keluaran berdasarkan masukan tanpa 
+memerlukan pemahaman source code (Jacob & Prasanna, 2017) . Black 
+Box Testing adalah metode pengujian perangkat lunak yang berfokus pada 
+evaluasi fungsi sistem berdasarkan spesifikasi tanpa memperhatikan 
+struktur internal atau kode program. Tester hanya menganalisis input dan 
+output dari aplikasi untuk memastikan bahwa sistem bekerja sesuai dengan 
+kebutuhan pengguna (Sonalitha et al., 2020). 
+
+===== PAGE 23 =====
+15 
+Universitas Pertahanan Republik Indonesia 
+ Teknik ini sering digunakan pada tahap pengujian fungsional dan 
+validasi sistem. Black Box Testing bertujuan untuk mengidentifikasi 
+kesalahan dalam fungsi -fungsi sistem, interaksi antarmuka, serta perilaku 
+aplikasi saat menerima input yang valid maupun tid ak valid (Kumar et al., 
+2015). Dalam penelitian ini, Black Box Testing digunakan untuk menguji 
+aplikasi steganografi mobile yang dirancang untuk melindungi dan 
+mengidentifikasi sumber kebocoran dokumen rahasia media cetak. 
+Pengujian dilakukan pada modul utama aplikasi, seperti modul p enyisipan 
+informasi rahasia, pengambilan data tersembunyi, dan validasi dokumen, 
+untuk memastikan aplikasi berjalan sesuai dengan spesifikasi dan 
+kebutuhan pengguna.. 
+ 
+2.10 Hasil Penelitian Terdahulu 
+ Dalam penelitian ini, peneliti menampilkan hasil penelitian 
+terdahulu oleh beberapa peneliti yang pernah peneliti baca yang relevan 
+dengan masalah yang diteliti. 
+ 
+2.10.1 Spectral Visible Edge Marking For Steganography Or 
+Watermarking 
+Penelitian oleh Andrew (2015), fokus penelitian adalah 
+pada steganografi untuk menyembunyikan informasi dalam 
+dokumen cetak dengan teknik pengaturan jarak antar  karakter. 
+Andrew mengeksplorasi teknik penyembunyian pesan dalam jarak 
+teks yang sulit dideteksi oleh mata namun tetap terdeteksi oleh 
+pemindai khusus. Hasil penelitian menunjukkan bahwa teknik ini 
+cukup efektif untuk menjaga kerahasiaan informasi. 
+Teknik yang digunakan Andrew adalah pengaturan jarak 
+mikro antar karakter. Pada dasarnya, Andrew mengatur ulang jarak 
+antar karakter sehingga membentuk pola -pola tertentu yang dapat 
+dibaca sebagai pesan rahasia. Proses ini dilakukan melalui 
+
+===== PAGE 24 =====
+16 
+Universitas Pertahanan Republik Indonesia 
+pengkodean karakter pada level pixel sehingga hasil cetak tampak 
+seperti teks biasa namun menyimpan informasi tersembunyi. 
+    
+2.10.2 Copy Detection Pattern -Based Authentication for 
+Printed Documents with Multi-Dimensional Features 
+Penelitian oleh Zhang (2019), Penelitian ini memanfaatkan 
+pola CDP (Copy Detection Pattern) yang terdiri dari piksel acak 
+dengan level abu -abu untuk mendeteksi pemalsuan dokumen 
+cetak. CDP bertindak sebagai fungsi fisik yang tidak dapat disalin, 
+sehingga sulit untuk direproduksi oleh pemalsu. 
+Dalam penelitiannya, d igunakan metode klasifikasi satu 
+kelas untuk membedakan dokumen asli dari dokumen palsu 
+berdasarkan fitur -fitur yang diekstraksi. Metode ini terbukti lebih 
+efektif dalam menangani sampel negatif yang bervariasi. 
+ 
+2.10.3 Forensic Analysis and Anonymisation of Printed 
+Documents 
+Penelitian oleh Richter (2018), meneliti teknik 
+penyembunyian pesan menggunakan metode steganografi dalam 
+simbol-simbol tertentu yang ditambahkan ke dokumen, seperti 
+watermark atau barcode kecil yang tersembunyi di bagian 
+dokumen. Hasil penelitian menunjuk kan bahwa steganografi 
+berbasis simbol ini lebih aman dibandingkan metode lain, namun 
+terbatas dalam jumlah informasi yang dapat disimpan.  
+Simbol yang digunakan dikodekan menjadi pesan rahasia 
+yang tidak terlihat secara kasat mata namun dapat diidentifikasi 
+oleh sistem pengkodean tertentu. Simbol ini berbentuk watermark 
+atau barcode yang ukurannya sangat kecil, sehingga tampak 
+seperti bagian biasa dari dokumen. 
+ 
+
+===== PAGE 25 =====
+17 
+Universitas Pertahanan Republik Indonesia 
+2.10.4 Printer Steganography Reverse Engineering the 
+Machine Identification Code 
+Penelitian oleh Mustafa (2019), memperkenalkan 
+pendekatan baru dengan menggunakan teknik steganografi 
+berbasis QR code yang disisipkan ke dalam gambar atau bagian 
+tertentu dari dokumen cetak. Teknik ini memungkinkan 
+penyimpanan informasi dalam jumlah besar secara aman di dalam 
+QR code yang tampak seperti bagian dekoratif dokumen. Namun, 
+metode ini kurang praktis karena mengharuskan penerima memiliki 
+perangkat khusus untuk membaca QR code,  
+Teknik ini menggunakan QR code yang disisipkan secara 
+halus di dalam dokumen, sehingga QR code terlihat seperti elemen 
+dekoratif. Informasi rahasia disembunyikan di dalam QR code, yang 
+kemudian dipindai menggunakan aplikasi atau perangkat tertentu. 
+ 
+
+===== PAGE 26 =====
+ 
+18 
+Hasil penelitian terdahulu disimpulkan dalam bentuk tabel berikut : 
+Tabel 2.5 Penelitian Terdahulu 
+Judul (peneliti, tahun) Hasil Penelitian Research Gap 
+Spectral Visible Edge 
+Marking For 
+Steganography Or 
+Watermarking 
+(Andrew, 2015) 
+Teknik ini terbukti efektif dalam uji 
+coba untuk dokumen yang dicetak dalam 
+kualitas tinggi dan berfungsi sebagai 
+lapisan keamanan yang cukup bagi 
+informasi rahasia. Namun, Andrew juga 
+menemukan bahwa teknik ini memiliki 
+keterbatasan karena jarak yang terlalu 
+kecil dapat hilang jika dokumen dipindai 
+dalam resolusi rendah. 
+Persamaan: 
+Keduanya membuat sistem penyisipan pesan 
+rahasia pada cover dokumen rahasia yang sulit 
+dibedakan oleh mata telanjang. 
+ 
+Perbedaan: 
+Penelitian Andrew menggunakan perangkat 
+scanner untuk membaca pesan rahasia sedangkan 
+ini menggunakan kamera ponsel sehingga dapat 
+digunakan secara portable.  
+ 
+Copy Detection 
+Pattern-Based 
+Authentication for 
+Printed Documents 
+with Multi -
+Penelitian ini mengidentifikasi 
+kelemahan pada metode autentikasi 
+berbasis CDP sebelumnya, khususnya 
+terhadap serangan menggunakan 
+teknologi pemrosesan gambar yang 
+Persamaan: 
+Keduanya membuat sistem berbasis blok untuk 
+mengidentifikasi pola-pola yang dibuat dari operasi 
+cetak-scan. 
+ 
+
+===== PAGE 27 =====
+19 
+Universitas Pertahanan Republik Indonesia 
+Dimensional Features 
+(Zhang, 2019)  
+dapat memulihkan informasi yang hilang. 
+Mekanisme autentikasi dokumen 
+melibatkan pengukuran distorsi informasi 
+yang dihasilkan selama proses cetak -
+scan untuk membedakan dokumen asli 
+dan palsu.    
+Perbedaan: 
+Penelitian Zhang berfokus pada klasifikasi yang 
+dalam membedakan dokumen asli dari yang palsu  
+sedangkan penelitian ini berfokus pada identifikasi 
+kebocoran dokumen pada media cetak. 
+Forensic Analysis and 
+Anonymisation of 
+Printed Documents 
+(Richter, 2018) 
+Teknik ini menunjukkan hasil yang 
+baik dalam menyembunyikan informasi 
+secara aman. Metode ini berguna untuk 
+melindungi informasi yang sangat 
+sensitif dan tidak mudah dideteksi oleh 
+pembaca biasa. Teknik ini juga 
+memungkinkan penyisipan informasi 
+yang lebih permanen di dalam dokumen. 
+Persamaan: 
+Keduanya membuat sebuah watermark unik yang 
+dimasukkan pada dokumen dan dibuat seolah 
+merupakan bagian dari dokumen. 
+ 
+Perbedaan: 
+Penelitian richter memiliki perbedaan dalam 
+penyusunan atau generate kode unik sehingga 
+bentuk kode unik yang dihasilkan akan berbeda 
+dengan penelitian ini. 
+ 
+Printer 
+Steganography, 
+Teknik ini menggunakan QR code 
+yang disisipkan secara halus di dalam 
+Persamaan: 
+
+===== PAGE 28 =====
+20 
+Universitas Pertahanan Republik Indonesia 
+Yellow Dot Analysis - 
+A Mini Survey 
+(Mustafa, 2019), 
+dokumen, sehingga QR code terlihat 
+seperti elemen dekoratif. Informasi 
+rahasia disembunyikan di dalam QR 
+code, yang kemudian dipindai 
+menggunakan aplikasi atau perangkat 
+tertentu. 
+Keduanya membuat kode unik yang dapat dipindai 
+untuk menampilkan pesan rahasia. 
+ 
+ 
+Perbedaan: 
+Penelitian Mustafa menggunakan perangkat 
+pembaca QR khusus yang tidak ringkas, sedangkan 
+penelitian ini membuat aplikasi yang dapat 
+digunakan lewat aplikasi kamera ponsel. 
+ 
+sumber : diolah oleh peneliti 
+ 
+
+===== PAGE 29 =====
+ 
+21 
+2.11 Kerangka Berpikir 
+Untuk menggambarkan pemikiran peneliti, maka dibuat sebuah 
+kerangka berfikir untuk membantu peneliti dalam proses penelitian agar 
+tetap terarah sesuai dengan target penelitian. Dalam penelitian ini, 
+digunakan metode Rapid Application Development untuk mengembangkan 
+aplikasi Setganografi dokumen cetak. Penelitian diawali dengan membuat 
+perencanaan yang menggunakan UML sebagai dasar pengembangan 
+aplikasi. Bentuk Aplikasi yang akan dibuat adalah web app sebagai alat 
+enkripsi menggunakan python dan android package kit sebagai alat dekripsi 
+menggunakan Flutter. Untuk menguji aplikasi ini digunakan sistem blackbox 
+testing. U ntuk menggambarkan pemikiran peneliti, maka dibuat sebuah 
+kerangka berpikir sebagai berikut. 
+ 
+Bagan 2.1 Kerangka berfikir 
+Sumber : diolah oleh peneliti 
+
+
+===== PAGE 30 =====
+ 
+22 
+BAB III 
+METODOLOGI PENELITIAN 
+ 
+3.1 Metode dan Desain Penelitian 
+Metode penelitian yang digunakan dalam penelitian ini adalah metode 
+Rapid Application Development (RAD). Pendekatan ini menekankan pada 
+iterasi cepat melalui prototipe yang memungkinkan pengembangan sistem 
+yang fleksibel dan responsif terhadap umpan balik pengguna.  
+ 
+ 
+Gambar 3.1 Alur Pengembangan Aplikasi 
+Sumber: diolah oleh peneliti 
+
+
+===== PAGE 31 =====
+23 
+Universitas Pertahanan Republik Indonesia 
+Alur penelitian dilakukan melalui langkah-langkah berikut: 
+a. Identifikasi Masalah: Mengidentifikasi permasalahan yang ada 
+dalam sistem saat ini melalui observasi dan wawancara dengan 
+pemangku kepentingan. 
+b. Analisis Kebutuhan: Mengumpulkan data kebutuhan pengguna dan 
+menganalisis sistem yang sedang berjalan untuk mengidentifikasi 
+kelemahan dan potensi perbaikan. 
+c. Perancangan Prototipe: Merancang prototipe awal sistem 
+berdasarkan hasil analisis kebutuhan. 
+d. Pengembangan Iteratif: Membangun prototipe sistem secara 
+bertahap sambil melakukan testing untuk penyempurnaan. 
+e. Pengujian dan Validasi: Melakukan pengujian sistem menggunakan 
+metode black-box testing untuk memastikan sistem memenuhi 
+kebutuhan pengguna. 
+f. Implementasi Akhir: Meluncurkan sistem yang telah disempurnakan 
+berdasarkan iterasi dan umpan balik pengguna. 
+Untuk menggambarkan alur penelitian tersebut, dibuatkan suatu diagram 
+yang berisi runtutan pengembangan aplikasi sebagai berikut. 
+ 
+3.2 Perencanaan Kebutuhan 
+3.2.1 Identifikasi Pengguna 
+a. Pembuat Dokumen Rahasia 
+ Pengguna yang bertugas membuat dokumen rahasia. Mereka 
+akan menggunakan sistem untuk mengenkripsi dokumen 
+sebelum didistribusikan. Pembuat dokumen memastikan 
+dokumen terenkripsi dengan aman untuk mencegah akses 
+oleh pihak yang tidak berwenang. 
+b. Pemeriksa Dokumen Rahasia 
+ Pengguna yang bertugas m emeriksa dokumen rahasia. 
+Mereka akan menggunakan sistem untuk mendekripsi 
+
+===== PAGE 32 =====
+24 
+Universitas Pertahanan Republik Indonesia 
+dokumen yang diterima agar dapat mengakses isi dokumen 
+sesuai dengan otorisasi yang diberikan. 
+ 
+3.2.2 Alat dan bahan 
+a. Perangkat Lunak: Python, Flask, SQLite, dan Pyzbar. 
+b. Perangkat Keras: Laptop dengan spesifikasi minimal 
+prosesor Intel i5, RAM 8GB, dan konektivitas internet. 
+c. Printer: memiliki fitur cetak berwarna. 
+d. Smartphone: memiliki kamera untuk scan dokumen. 
+ 
+3.2.3 Tempat dan Waktu Penelitian 
+Penelitian dilakukan di Pusat Data dan Informasi Kemhan RI 
+dan Universitas Pertahanan RI, dengan fokus utama pada Fakultas 
+atau institusi yang relevan dengan pengembangan aplikasi. Waktu 
+penelitian dijadwalkan pada bulan Januari 2025 untuk tahap 
+observasi, wawancara, dan pengumpulan data awal. Kemudian pada 
+bulan Februari hingga Juni membu at aplikasi.  Berikut adalah tabel 
+jadwal penelitian. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 33 =====
+25 
+Universitas Pertahanan Republik Indonesia 
+Tabel 3.1 Jadwal Penelitian 
+No.  Kegiatan 
+2024 2025 
+Nov Des Jan Feb Mar Apr 
+1 
+Pembuatan Draf dan 
+Proposal Skripsi           
+2 Proses Bimbingan   
+3 
+Seminar Proposal 
+Skripsi             
+4 
+Perbaikan Proposal 
+Skripsi     
+  
+      
+5 Pengumpulan Data           
+6 
+Analisis dan Desain 
+Sistem           
+7 
+Pembuatan Sistem 
+Enkripsi         
+8 
+Pembuatan Sistem 
+Dekripsi         
+9 Integrasi Arsitektur     
+  
+     
+10 
+Penyusunan Laporan 
+Skripsi     
+  
+     
+11 Seminar Hasil           
+12 Seminar Skripsi           
+13 Perbaikan Skripsi           
+14 
+Penyerahan Skripsi 
+kepada Program Studi           
+Sumber: diolah oleh peneliti 
+ 
+ 
+ 
+
+===== PAGE 34 =====
+26 
+Universitas Pertahanan Republik Indonesia 
+3.3 Perancangan Sistem 
+3.3.1 Use Case Diagram  
+Dalam sistem ini, Pembuat Dokumen Rahasia berperan untuk 
+mengenkripsi dokumen yang akan didistribusikan. Proses ini 
+dimulai dengan mengunggah dokumen ke dalam sistem, diikuti 
+dengan penerapan enkripsi menggunakan algoritma tertentu. 
+Setelah dokumen terenkr ipsi, sistem menghasilkan file terenkripsi 
+dan metadata terkait.  
+Penerima Dokumen Rahasia memiliki peran untuk 
+mendekripsi dokumen yang diterima. Proses ini melibatkan scan 
+dokumen yang valid, di mana sistem kemudian memverifikasi dan 
+mendekripsi dokumen untuk memberikan akses ke isinya. Berikut 
+adalah use case diagram untuk sistem. 
+ 
+ 
+ 
+Gambar 3.1 Use Case Diagram 
+Sumber: diolah oleh Peneliti 
+ 
+
+
+===== PAGE 35 =====
+27 
+Universitas Pertahanan Republik Indonesia 
+3.3.2 Activity Diagram 
+Activity diagram menunjukkan alur kerja dari proses utama 
+dalam sistem. Diagram ini mencakup langkah -langkah mulai dari 
+input data oleh pengguna, validasi oleh sistem, hingga pengolahan 
+data dan penyimpanan hasil ke basis data. Pada proses enkripsi, 
+aktivitas dimulai dari unggahan dokumen, pengaplikasian enkripsi, 
+dan penyimpanan dokumen terenkripsi. Proses dekripsi dimulai 
+dari input kunci dekripsi, validasi, dan akses ke dokumen yang 
+didekripsi. Kedua proses diakhiri dengan pencatatan aktivitas ke log 
+sistem untuk mendukung transparansi dan keamanan. 
+ 
+
+===== PAGE 36 =====
+28 
+Universitas Pertahanan Republik Indonesia 
+ 
+ 
+Gambar 3.3 Activity Diagram Enkripsi 
+Sumber: diolah oleh peneliti 
+ 
+
+
+===== PAGE 37 =====
+29 
+Universitas Pertahanan Republik Indonesia 
+ 
+ 
+ 
+Gambar 3.4 Activity Diagram Dekripsi 
+Sumber: diolah oleh peneliti
+
+
+===== PAGE 38 =====
+ 
+30 
+ 
+3.3.3 Deployment Diagram 
+ Aku Deployment diagram pada sistem ini menunjukkan 
+distribusi perangkat keras dan perangkat lunak yang mendukung 
+aplikasi steganografi mobile untuk identifikasi sumber kebocoran 
+dokumen rahasia media cetak. Server berfungsi sebagai pusat 
+pengolahan data dengan  artefak berupa Web Server untuk 
+komunikasi antara sistem dan Database sebagai tempat 
+penyimpanan data dokumen terenkripsi dan metadata. User Device 
+seperti PC/Laptop digunakan untuk menyiapkan dokumen 
+steganografi menggunakan perangkat lunak berbasis  Python, 
+kemudian dicetak melalui Printer. 
+ Dokumen yang sudah dicetak dapat dipindai menggunakan 
+Scanner atau kamera melalui Mobile App yang memiliki artefak 
+berupa file APK. Aplikasi ini bertugas mendeteksi dan mendekripsi 
+informasi tersembunyi yang disisipkan dalam dokumen cetak. 
+Selanjutnya, apl ikasi berkomunikasi dengan Server untuk 
+memproses data dan mengakses informasi dari Database. Hasil 
+analisis dan identifikasi sumber kebocoran ditampilkan kembali 
+melalui Mobile App. Alur ini memastikan setiap komponen bekerja 
+secara terintegrasi untuk me lindungi dokumen rahasia sekaligus 
+mendukung identifikasi sumber kebocoran secara efektif. 
+ 
+
+===== PAGE 39 =====
+31 
+Universitas Pertahanan Republik Indonesia 
+ 
+Gambar 3.5 Deployment Diagram 
+Sumber: diolah oleh peneliti 
+ 
+ 
+ 
+  
+
+
+===== PAGE 40 =====
+ 
+32 
+DAFTAR PUSTAKA 
+ 
+Adjaoute, A. (2021). Data breach detection. In US Patent 11,062,317 . 
+https://patents.google.com/patent/US11062317B2/en%0Ahttps://pate
+ntimages.storage.googleapis.com/3b/14/72/9383098a81f95c/US1106
+2317.pdf 
+Anderson, R. J., & Petitcolas, F. A. P. (1998). On the limits of 
+steganography. IEEE Journal on Selected Areas in Communications , 
+16(4), 474ΓÇô481. https://doi.org/10.1109/49.668971 
+Bandyopadhyay, S. K., Bhattacharyya, D., Ganguly, D., Mukherjee, S., & 
+Das, P. (n.d.). A Tutorial Review on Steganography. 
+Boukhary, S., & Colmenares, E. (2019). A clean approach to flutter 
+development through the flutter clean architecture package. 
+Proceedings - 6th Annual Conference on Computational Science and 
+Computational Intelligence, CSCI 2019 , 1115 ΓÇô1120. 
+https://doi.org/10.1109/CSCI49370.2019.00211 
+Chapman, C., & Stolee, K. T. (2016). Exploring regular expression usage 
+and context in python. ISSTA 2016 - Proceedings of the 25th 
+International Symposium on Software Testing and Analysis , 282ΓÇô293. 
+https://doi.org/10.1145/2931037.2931073 
+Ciccozzi, F., Malavolta, I., & Selic, B. (2019). Execution of UML models: a 
+systematic review of research and practice. Software and Systems 
+Modeling, 18(3), 2313 ΓÇô2360. https://doi.org/10.1007/s10270 -018-
+0675-4 
+Dagne, L. (2019). Flutter for Cross -Platform App and SDK Development. 
+Metropolia University of Applied Sciences , May, 1 ΓÇô28. 
+https://www.theseus.fi/bitstream/handle/10024/172866/Lukas Dagne 
+Thesis.pdf?sequence=2&isAllowed=y 
+Do╟ºan, S., Betin-Can, A., & Garousi, V. (2014). Web application testing: A 
+systematic literature review. Journal of Systems and Software , 91(1), 
+174ΓÇô201. https://doi.org/10.1016/j.jss.2014.01.010 
+
+===== PAGE 41 =====
+33 
+Universitas Pertahanan Republik Indonesia 
+Evsutin, O., Melman, A., & Meshcheryakov, R. (2020). Digital 
+steganography and watermarking for digital images: A review of current 
+research directions. IEEE Access , 8, 166589 ΓÇô166611. 
+https://doi.org/10.1109/ACCESS.2020.3022779 
+Gomaa, H. (2005). Designing software product lines with UML. 29th Annual 
+IEEE/NASA Goddard Software Engineering Workshop - Tutorial Notes, 
+2005(April), 160ΓÇô216. https://doi.org/10.1109/SEW.2005.5 
+Gunawan, M. J., & Sutomo, R. (2023). Web -Based Payroll Application 
+Design and Development Using Rapid Application Development. 
+JOINS (Journal of Information System) , 8(1), 67 ΓÇô79. 
+https://doi.org/10.33633/joins.v8i1.7979 
+Hamid, N., Yahya, A., Ahmad, R. B., & Al -Qershi, O. M. (2012). Image 
+steganography techniques: an overview. International Journal of 
+Computer Science and Security (IJCSS), 6(3), 168ΓÇô187. 
+Hoan, N. V., Park, J.-H., Lee, S.-H., & Kwon, K.-R. (2017). Real-time Heart 
+Rate Measurement based on Photoplethysmography using Android 
+Smartphone Camera. Journal of Korea Multimedia Society, 20(2), 234ΓÇô
+243. https://doi.org/10.9717/kmms.2017.20.2.234 
+Huai, J., Zhang, Y., & Yilmaz, A. (2019). The Mobile AR Sensor Logger for 
+Android and iOS devices. Proceedings of IEEE Sensors, 2019-Octob, 
+1ΓÇô4. https://doi.org/10.1109/SENSORS43011.2019.8956816 
+Jacob, P. M., & Prasanna, M. (2017). A Comparative analysis on Black box 
+testing strategies. Proceedings - 2016 International Conference on 
+Information Science, ICIS 2016 , 1 ΓÇô6. 
+https://doi.org/10.1109/INFOSCI.2016.7845290 
+Jobe, W. (2013). Native Apps Vs. Mobile Web Apps. International Journal 
+of Interactive Mobile Technologies (IJIM) , 7(4), 27. 
+https://doi.org/10.3991/ijim.v7i4.3226 
+Johnson, N. F., & Jajodia, S. (1998). Exploring steganography: Seeing the 
+unseen. Computer, 31(2), 26 ΓÇô34. 
+https://doi.org/10.1109/MC.1998.4655281 
+
+===== PAGE 42 =====
+34 
+Universitas Pertahanan Republik Indonesia 
+Khalaf, A. M., & Lakhtaria, K. (2024). A Review of Steganography 
+Techniques. AIP Conference Proceedings , 3051(1), 131 ΓÇô150. 
+https://doi.org/10.1063/5.0191705 
+Kosasi, S., & Eka Yuliani, I. D. A. (2015). Penerapan Rapid Application 
+Development Pada Sistem Penjualan Sepeda Online. SimetrisΓÇ»: Jurnal 
+Teknik Mesin, Elektro Dan Ilmu Komputer , 6(1), 27. 
+https://doi.org/10.24176/simet.v6i1.234 
+Kumar, M., Professor, A., Kumar Singh, S., Dwivedi, R. K., & Professor, A. 
+(2015). A Comparative Study of Black Box Testing and White Box 
+Testing Technique. International Journal of Advance Research in 
+Computer Science and Management Studies , 3(10), 32 ΓÇô44. 
+www.ijarcsms.com 
+Mayer, P., Zou, Y., Schaub, F., & Aviv, A. J. (2021). ΓÇ£Now IΓÇÖm a bit angry:ΓÇ¥ 
+IndividualsΓÇÖ awareness, perception, and responses to data breaches 
+that affected them. Proceedings of the 30th USENIX Security 
+Symposium, 393ΓÇô410. 
+Neto, N. N., Madnick, S., Paula, A. M. G. D., & Borges, N. M. (2021). 
+Developing a Global Data Breach Database and the Challenges 
+Encountered. Journal of Data and Information Quality , 13(1), 1 ΓÇô33. 
+https://doi.org/10.1145/3439873 
+Nurman Hidayat, & Kusuma Hati. (2021). Penerapan Metode Rapid 
+Application Development (RAD) dalam Rancang Bangun Sistem 
+Informasi Rapor Online (SIRALINE). Jurnal Sistem Informasi, 10(1), 8ΓÇô
+17. https://doi.org/10.51998/jsi.v10i1.352 
+Provos, N., privacy, P. H. -I. security &, & 2003,  undefined. (2003). The 
+basics of embedding. Ieeexplore.Ieee.Org. 
+http://computer.org/security/ 
+Qi, P., Zhang, Y., Zhang, Y., Bolton, J., & Manning, C. D. (2020). Stanza: A 
+Python natural language processing toolkit for many human languages. 
+Proceedings of the Annual Meeting of the Association for 
+Computational Linguistics , 101 ΓÇô108. 
+
+===== PAGE 43 =====
+35 
+Universitas Pertahanan Republik Indonesia 
+https://doi.org/10.18653/v1/2020.acl-demos.14 
+Saleem, H., & Naveed, M. (2020). SoK: Anatomy of Data Breaches. 
+Proceedings on Privacy Enhancing Technologies , 2020(4), 153ΓÇô174. 
+https://doi.org/10.2478/popets-2020-0067 
+Serrano, N., Hernantes, J., & Gallardo, G. (2013). Software technology 
+Mobile Web Apps. www.ludei.com/games/ 
+Shirali-Shahreza, M. H., & Shirali -Shahreza, M. (2009). A survey of 
+information hiding. Handbook of Research on Secure Multimedia 
+Distribution, 3(1), 241 ΓÇô256. https://doi.org/10.4018/978 -1-60566-262-
+6.ch013 
+Sonalitha, E., Nurdewanto, B., Zubair, A., Asriningtias, S. R., Yudhistiro, K., 
+& Mujahidin, I. (2020). Blackbox Testing Model Boundary Value of 
+Mapping Taxonomy Applications and Data Analysis of Art and 
+Artworks. 2020 3rd International Seminar on Research of Information 
+Technology and Intelligent Systems, ISRITI 2020 , 7 ΓÇô11. 
+https://doi.org/10.1109/ISRITI51436.2020.9315406 
+Thomas, K., Pullman, J., Yeo, K., Raghunathan, A., Kelley, P. G., Invernizzi, 
+L., Benko, B., Pietraszek, T., Patel, S., Boneh, D., & Bursztein, E. 
+(2019). Protecting accounts from credential stuffing with password 
+breach alerting. Proceedings of the 28th USENIX Security Symposium, 
+1555ΓÇô1571. 
+ 
+
+===== PAGE 44 =====
+ 
+36 
+LAMPIRAN 
+ 
+ 
