@@ -15,6 +15,7 @@ ENV/
 env/
 .env
 .env.*
+!.env.example
 
 # Local venv inside project
 Coding/venv/
