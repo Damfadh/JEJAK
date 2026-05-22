@@ -122,3 +122,9 @@ Detail: Jelaskan perubahan, file yang diubah, dan langkah selanjutnya.
 - Files changed: README.md, .env.example, .github/workflows/python-ci.yml
 - Next steps: Continue Day 2: backend PKI API
 
+2026-05-21 | @assistant | Start Day 2: Backend PKI API | status: in-progress
+
+- Deskripsi: Scaffold FastAPI backend (backend/app.py) with endpoints for register key, get key, and verify; added backend README and requirements.
+- Files changed: backend/app.py, backend/requirements.txt, backend/README.md
+- Next steps: Install backend deps and run uvicorn for manual testing
+
