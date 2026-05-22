@@ -127,6 +127,26 @@ def verify(req: VerifyRequest):
     return {"valid": ok}
 
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
+@app.get("/ready")
+def ready():
+    # basic readiness: db file exists and tables accessible
+    try:
+        conn = get_db()
+        c = conn.cursor()
+        c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name IN ('publishers','audit')")
+        rows = c.fetchall()
+        conn.close()
+        ok = len(rows) >= 2
+        return {"ready": ok}
+    except Exception:
+        return {"ready": False}
+
+
 @app.get("/debug/core-path")
 def debug_core_path():
     try:
