@@ -1,0 +1,6 @@
+{
+  "appId": "id.co.jejak.app",
+  "appName": "JEJAK Scanner",
+  "webDir": "mobile/www",
+  "bundledWebRuntime": false
+}

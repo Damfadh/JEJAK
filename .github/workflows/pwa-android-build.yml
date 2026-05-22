@@ -1,0 +1,53 @@
+name: Build PWA and (optionally) Android APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build-pwa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        working-directory: mobile
+        run: npm ci || npm install
+      - name: Build PWA
+        working-directory: mobile
+        run: npm run build
+      - name: Archive PWA
+        uses: actions/upload-artifact@v4
+        with:
+          name: pwa-www
+          path: mobile/www
+
+  build-android:
+    needs: build-pwa
+    if: "exists('android')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Setup Android SDK
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          arch: x86_64
+      - name: Build Android APK
+        run: |
+          cd android
+          ./gradlew assembleRelease --no-daemon
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: jejak-android-apk
+          path: android/app/build/outputs/**/*.apk

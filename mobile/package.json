@@ -1,0 +1,10 @@
+{
+  "name": "jejak-mobile-pwa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'www ready'",
+    "start": "npx serve mobile/www"
+  },
+  "dependencies": {}
+}
