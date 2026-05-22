@@ -111,6 +111,22 @@
     <p>Scan QR halftone dari dokumen dan verifikasi ke backend.</p>
   </header>
 
+  <div id="consentModal" class="panel" style="display:none">
+    <h2 style="margin:0 0 8px;font-size:1rem;">Persetujuan penggunaan aplikasi</h2>
+    <p style="margin:0 0 10px;line-height:1.45;">Sebelum memakai scanner, Anda harus menyetujui:</p>
+    <ul style="margin:0 0 12px 18px;padding:0;line-height:1.5;">
+      <li>Akses kamera untuk memindai QR halftone pada dokumen.</li>
+      <li>Pengiriman data hasil scan ke backend JEJAK untuk verifikasi.</li>
+      <li>Penyimpanan konfigurasi API Base URL dan API Key secara lokal di perangkat ini.</li>
+      <li>Penggunaan hanya untuk dokumen yang berwenang/diizinkan.</li>
+    </ul>
+    <p style="margin:0 0 12px;line-height:1.45;">Jika Anda tidak setuju, aplikasi tidak dapat digunakan.</p>
+    <div class="actions" style="justify-content:flex-start;">
+      <button id="acceptConsent">Saya Setuju</button>
+      <button id="declineConsent" class="secondary">Tidak Setuju</button>
+    </div>
+  </div>
+
   <div class="panel grid">
     <div>
       <label for="apiBase">API Base URL</label>

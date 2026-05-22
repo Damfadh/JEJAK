@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "doc_id": "QR-TEST-001",
+  "publisher_id": "PUBLISHER-TEST",
+  "recipient_id": "RECIPIENT-TEST",
+  "timestamp": "2026-05-22T04:23:03.208504Z",
+  "purpose": "QR testing for JEJAK mobile scanner",
+  "signature": "hLn1ulEil3vO35yi35hk4NpAvGKumkSYMMo0dWMTUXqLV58FBFSPNPXdo3arX/8ejWO/bKI4tqiUicsRmYD8CA=="
+}

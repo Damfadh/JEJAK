@@ -44,3 +44,15 @@ Assigned: @assistant
 Solusi: SSH public key was added to GitHub Settings > SSH and GPG keys. `ssh -T git@github.com` then returned the success message and git push over SSH succeeded.
 Komentar: Public key content has been extracted and is ready to be pasted into GitHub Settings > SSH and GPG keys.
 
+ID: ISSUE-QR-001
+Tanggal: 2026-05-22
+Pelapor: @assistant
+Judul: Halftone QR not detected reliably
+Status: resolved
+Prioritas: P1
+Deskripsi: QR halftone yang terlalu samar tidak selalu terbaca oleh scanner mobile.
+Langkah reproduksi: 1) Buka sample halftone QR 2) Scan via kamera/image upload 3) Scanner gagal mendeteksi.
+Assigned: @assistant
+Solusi: Added preprocessing thresholds in `mobile/www/app.js` before `jsQR` and created a more detectable test sample `QR_TESTING/sample_qr_detectable.png`.
+Komentar: Use `sample_qr_detectable.png` for baseline tests when troubleshooting camera detection.
+

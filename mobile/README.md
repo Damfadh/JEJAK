@@ -20,6 +20,16 @@ Scanner modes:
 - Camera live scan
 - Image upload fallback (`Scan From Image`) for difficult halftone QR captures
 
+Startup consent
+
+When the app opens for the first time, it will ask for consent before enabling the scanner. The consent covers:
+- camera access for scanning
+- sending scanned payloads to the JEJAK backend for verification
+- storing API configuration locally on the device
+- using the app only for authorized documents
+
+If consent is declined, the scanner remains locked.
+
 Capacitor (Android)
 
 To create the Android scaffold locally (already added in the repo for CI):

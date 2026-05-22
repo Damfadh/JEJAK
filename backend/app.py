@@ -125,7 +125,10 @@ app = FastAPI(title="JEJAK PKI Registry")
 
 @app.on_event("startup")
 def startup():
-    init_db()
+    try:
+        init_db()
+    except Exception as exc:
+        print(f"WARNING: database initialization failed: {exc}")
 
 
 def check_rate_limit(key: str) -> bool:

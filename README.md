@@ -28,6 +28,34 @@ Output demo:
 - `Coding/demo_output_qr.png`
 - `Coding/demo_signed_payload.json`
 
+## Deploy Backend ke Render
+
+Backend FastAPI ada di `backend/` dan sudah siap dipakai sebagai Web Service di Render.
+
+Langkah cepat:
+
+1. Buat Web Service baru di Render.
+2. Hubungkan repo ini.
+3. Set `Root Directory` ke `backend` jika Anda deploy dari repo utama.
+4. Set environment variable:
+	- `DATABASE_URL` = connection string Supabase/Postgres Anda
+	- `API_KEY` = opsional, untuk mengunci endpoint `POST /register-key`
+5. Gunakan Dockerfile di `backend/Dockerfile`.
+
+Health check endpoint:
+
+```text
+/health
+```
+
+Readiness endpoint:
+
+```text
+/ready
+```
+
+Jika `health` sudah `ok` tapi `ready` masih `false`, biasanya masalahnya ada di koneksi database atau network access ke Supabase.
+
 ## Logging Progres
 
 Catatan progres dan issue disimpan di folder `PROGRESS/`.

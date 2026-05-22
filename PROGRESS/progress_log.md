@@ -128,3 +128,60 @@ Detail: Jelaskan perubahan, file yang diubah, dan langkah selanjutnya.
 - Files changed: backend/app.py, backend/requirements.txt, backend/README.md
 - Next steps: Install backend deps and run uvicorn for manual testing
 
+2026-05-22 | @dev | Start E2E demo | status: in-progress
+
+- Deskripsi: Begin end-to-end demo flow
+
+2026-05-22 | @dev | Generate keypair | status: done
+
+- Deskripsi: Generated signing keypair and exported public key
+- Files changed: I:\Project\Jejak\Coding\demo_key_public.b64.txt
+- Next steps: Create dummy PDF and sign payload
+
+2026-05-22 | @dev | Create dummy PDF | status: done
+
+- Deskripsi: Created dummy PDF for demo
+- Files changed: I:\Project\Jejak\Coding\dummy_rahasia_demo.pdf
+- Next steps: Sign payload and generate QR
+
+2026-05-22 | @dev | Sign payload | status: done
+
+- Deskripsi: Signed payload and saved to file
+- Files changed: I:\Project\Jejak\Coding\demo_signed_payload.json
+- Next steps: Generate QR image from payload
+
+2026-05-22 | @dev | Generate Halftone QR | status: done
+
+- Deskripsi: Generated near-invisible halftone QR image from signed payload
+- Files changed: I:\Project\Jejak\Coding\demo_output_qr_halftone.png
+- Next steps: Embed QR into PDF
+
+2026-05-22 | @dev | Embed Halftone QR into PDF | status: done
+
+- Deskripsi: Embedded near-invisible QR into PDF and saved signed PDF
+- Files changed: I:\Project\Jejak\Coding\demo_signed.pdf
+- Next steps: Verify payload locally
+
+2026-05-22 | @dev | Verify payload | status: done
+
+- Deskripsi: Verification OK
+- Next steps: Prepare demo artifacts and README
+
+2026-05-22 | @assistant | Add mobile consent gate and APK v1 | status: done
+
+- Deskripsi: Added startup consent gate to the mobile app, required camera/backend/data consent before scanning, rebuilt APK, and saved a new versioned release artifact.
+- Files changed: mobile/www/index.html, mobile/www/app.js, mobile/android/app/src/main/AndroidManifest.xml, mobile/README.md, Releases/jejak-v1.apk
+- Next steps: Continue improving QR scan reliability and create additional test samples if needed.
+
+2026-05-22 | @assistant | Create QR testing folder and samples | status: done
+
+- Deskripsi: Added dedicated `QR_TESTING` folder with sample payload JSON, plain QR, halftone QR, and a more detectable QR sample for scan debugging.
+- Files changed: QR_TESTING/README.md, QR_TESTING/generate_sample_qr.py, QR_TESTING/sample_payload.json, QR_TESTING/sample_public_key.b64.txt, QR_TESTING/sample_qr_plain.png, QR_TESTING/sample_qr_halftone.png, QR_TESTING/sample_qr_detectable.png
+- Next steps: Use the detectable sample to validate scanner behavior on device, then tune halftone parameters if needed.
+
+2026-05-22 | @assistant | Improve QR detection robustness | status: done
+
+- Deskripsi: Updated the mobile scanner to preprocess frames with multiple thresholds before `jsQR`, improving detection of faint QR/halftone images.
+- Files changed: mobile/www/app.js
+- Next steps: If detection is still flaky on some phones, consider a stronger scanner engine or slightly less aggressive halftone settings.
+

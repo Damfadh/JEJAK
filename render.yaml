@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: jejak-backend
+    env: docker
+    rootDir: backend
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: API_KEY
+        sync: false
+      - key: RATE_LIMIT_MAX
+        value: "10"
