@@ -21,3 +21,6 @@ Contoh singkat penulisan entri di `progress_log.md`:
 ```
 
 Jaga agar catatan singkat, jelas, dan selalu sertakan tanggal serta siapa yang membuat entri.
+
+Current status highlights:
+- Day 3: Batch signing CLI — in progress. Added `scripts/batch_sign.py` and `tests/test_batch_sign.py` (basic ZIP output and verification).
