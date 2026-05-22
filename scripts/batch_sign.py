@@ -15,6 +15,12 @@ import zipfile
 from typing import Optional
 
 from Coding.core.crypto import DocumentSigner
+try:
+    from Coding.core.qr_generator import PayloadEncoder
+    from Coding.core.pdf_manipulator import PDFEncoder
+    HAS_PDF = True
+except Exception:
+    HAS_PDF = False
 
 
 def sign_batch(csv_path: str, private_key_bytes: bytes, out_zip: str, prefix: str = ""):
@@ -42,6 +48,21 @@ def sign_batch(csv_path: str, private_key_bytes: bytes, out_zip: str, prefix: st
 
                 filename = f"{prefix}{doc_id}.json"
                 zf.writestr(filename, json.dumps(signed_payload, ensure_ascii=False))
+
+                # optionally embed QR into a corresponding PDF if available
+                if HAS_PDF:
+                    # look for input PDF named {doc_id}.pdf in current working directory
+                    in_pdf = Path(".") / f"{doc_id}.pdf"
+                    if in_pdf.exists():
+                        qr_tmp = Path("tmp_qr_") / f"{doc_id}_qr.png"
+                        qr_tmp.parent.mkdir(parents=True, exist_ok=True)
+                        PayloadEncoder.encode_payload_to_qr(signed_payload, str(qr_tmp))
+                        out_pdf = Path(out_zip).with_suffix("")
+                        out_pdf = Path(str(out_pdf) + f"_{doc_id}.pdf")
+                        try:
+                            PDFEncoder.embed_qr_to_pdf(str(in_pdf), str(qr_tmp), str(out_pdf))
+                        except Exception:
+                            pass
 
     return str(out_p), signer.get_public_key_base64()
 

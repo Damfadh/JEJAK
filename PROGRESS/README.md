@@ -36,3 +36,7 @@ python scripts/batch_sign.py --csv tests/fixtures/sample_batch.csv --private-key
 ```
 
 Sample fixture: `tests/fixtures/sample_batch.csv`.
+
+CI artifact:
+
+The CI workflow `day3-batch.yml` runs tests and produces `sample_signed.zip` (uploaded as a GitHub Actions artifact named `sample_signed_zip`). Use this artifact to preview signed payloads.

@@ -1,0 +1,32 @@
+name: Day3 - Batch sign tests and artifact
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  batch-tests-and-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install -r Coding/requirements.txt
+      - name: Run pytest
+        run: pytest -q
+      - name: Generate sample signed ZIP
+        run: |
+          python scripts/batch_sign.py --csv tests/fixtures/sample_batch.csv --gen-key-out ci_key.b64 --out sample_signed.zip
+      - name: Upload sample artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample_signed_zip
+          path: sample_signed.zip
