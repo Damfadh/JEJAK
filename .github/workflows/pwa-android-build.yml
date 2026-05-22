@@ -45,6 +45,17 @@ jobs:
       - name: Build Android APK
         run: |
           cd android
+          if [ -n "${{ secrets.ANDROID_KEYSTORE }}" ]; then
+            echo "Setting up keystore from secrets"
+            mkdir -p android/keystore
+            echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > android/keystore/keystore.jks
+            echo "RELEASE_STORE_FILE=keystore/keystore.jks" >> android/gradle.properties
+            echo "RELEASE_STORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" >> android/gradle.properties
+            echo "RELEASE_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }}" >> android/gradle.properties
+            echo "RELEASE_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/gradle.properties
+          else
+            echo "No keystore provided; building unsigned APK"
+          fi
           ./gradlew assembleRelease --no-daemon
       - name: Upload APK
         uses: actions/upload-artifact@v4
