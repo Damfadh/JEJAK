@@ -24,3 +24,15 @@ Jaga agar catatan singkat, jelas, dan selalu sertakan tanggal serta siapa yang m
 
 Current status highlights:
 - Day 3: Batch signing CLI — in progress. Added `scripts/batch_sign.py` and `tests/test_batch_sign.py` (basic ZIP output and verification).
+
+Usage example (Day 3):
+
+```bash
+# Generate a new key and sign CSV into out.zip
+python scripts/batch_sign.py --csv tests/fixtures/sample_batch.csv --out out.zip --gen-key-out key.b64
+
+# Use an existing private key (base64 file) and add prefix to filenames inside the ZIP
+python scripts/batch_sign.py --csv tests/fixtures/sample_batch.csv --private-key-base64-file key.b64 --out signed.zip --prefix signed_
+```
+
+Sample fixture: `tests/fixtures/sample_batch.csv`.

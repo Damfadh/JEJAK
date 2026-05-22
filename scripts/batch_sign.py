@@ -17,7 +17,7 @@ from typing import Optional
 from Coding.core.crypto import DocumentSigner
 
 
-def sign_batch(csv_path: str, private_key_bytes: bytes, out_zip: str):
+def sign_batch(csv_path: str, private_key_bytes: bytes, out_zip: str, prefix: str = ""):
     csv_p = Path(csv_path)
     out_p = Path(out_zip)
     signer = DocumentSigner(private_key_bytes=private_key_bytes)
@@ -40,7 +40,7 @@ def sign_batch(csv_path: str, private_key_bytes: bytes, out_zip: str):
 
                 signed_payload, signature = signer.sign_payload(payload)
 
-                filename = f"{doc_id}.json"
+                filename = f"{prefix}{doc_id}.json"
                 zf.writestr(filename, json.dumps(signed_payload, ensure_ascii=False))
 
     return str(out_p), signer.get_public_key_base64()
@@ -50,7 +50,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--csv", required=True)
     parser.add_argument("--private-key-base64-file", required=False)
-    parser.add_argument("--out", required=True)
+    parser.add_argument("--out", required=True, help="Output zip filename")
+    parser.add_argument("--out-dir", required=False, help="Directory to write output zip into")
+    parser.add_argument("--prefix", required=False, default="", help="Prefix to add to filenames inside zip")
     parser.add_argument("--gen-key-out", required=False, help="Write generated private key base64 to this file")
 
     args = parser.parse_args()
@@ -64,7 +66,12 @@ def main():
         if args.gen_key_out:
             Path(args.gen_key_out).write_text(base64.b64encode(private_key_bytes).decode("utf-8"), encoding="utf-8")
 
-    out_zip, pub_b64 = sign_batch(args.csv, private_key_bytes, args.out)
+    # determine out path
+    out_path = Path(args.out)
+    if args.out_dir:
+        out_path = Path(args.out_dir) / out_path
+
+    out_zip, pub_b64 = sign_batch(args.csv, private_key_bytes, str(out_path), prefix=args.prefix)
     print(f"Wrote {out_zip}")
     print(f"Public key (base64): {pub_b64}")
 
