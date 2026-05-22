@@ -40,3 +40,25 @@ Sample fixture: `tests/fixtures/sample_batch.csv`.
 CI artifact:
 
 The CI workflow `day3-batch.yml` runs tests and produces `sample_signed.zip` (uploaded as a GitHub Actions artifact named `sample_signed_zip`). Use this artifact to preview signed payloads.
+
+Day 4 (Compose demo)
+---------------------
+
+Added a multi-service compose demo in `docker-compose.yml` with services:
+- `postgres` — Postgres database
+- `backend` — JEJAK backend
+- `signer` — demo signer that runs `scripts/batch_sign.py` against `tests/fixtures/sample_batch.csv` and writes artifacts to `./artifacts`
+
+Run the demo locally:
+
+```bash
+docker-compose up --build
+```
+
+Artifacts will be available in the repository `./artifacts` folder as `sample_signed.zip` and `ci_key.b64`.
+
+To stop after signer completes and exit: use
+
+```bash
+docker-compose up --build --abort-on-container-exit
+```

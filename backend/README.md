@@ -45,3 +45,18 @@ Rate limiting
 -------------
 
 A simple in-memory rate limiter protects `POST /register-key` (default: 10 requests/minute per IP). For production use a distributed limiter (Redis) or API gateway.
+
+Compose demo (multi-service)
+----------------------------
+
+A demo signer service is included in `docker-compose.yml` and builds from `demo/signer`. It runs the `scripts/batch_sign.py` CLI against `tests/fixtures/sample_batch.csv` and writes artifacts to the host `./artifacts` folder (sample_signed.zip and ci_key.b64).
+
+To run the full demo stack:
+
+```bash
+docker-compose up --build
+```
+
+After startup the signed ZIP will be available in `./artifacts/sample_signed.zip` on the host.
+
+Note: the signer runs once and exits; `docker-compose up` will keep other services running. Use `docker-compose up --build --abort-on-container-exit` to stop when signer finishes.

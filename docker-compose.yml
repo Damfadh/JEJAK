@@ -21,6 +21,18 @@ services:
     ports:
       - "8000:8000"
 
+  signer:
+    build: ./demo/signer
+    depends_on:
+      - backend
+      - postgres
+    volumes:
+      - ./artifacts:/artifacts
+      - ./:/workspace:ro
+    environment:
+      PYTHONUNBUFFERED: 1
+    command: ["/bin/sh", "-c", "python /workspace/scripts/batch_sign.py --csv /workspace/tests/fixtures/sample_batch.csv --out /artifacts/sample_signed.zip --gen-key-out /artifacts/ci_key.b64"]
+
 volumes:
   pgdata:
     driver: local
