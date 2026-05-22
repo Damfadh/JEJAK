@@ -1,0 +1,37 @@
+name: Backend tests with Postgres
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: jejak
+          POSTGRES_PASSWORD: jejak_pass
+          POSTGRES_DB: jejak
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U jejak" --health-interval=10s --health-timeout=5s --health-retries=5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt
+      - name: Run tests with DATABASE_URL
+        env:
+          DATABASE_URL: postgres://jejak:jejak_pass@localhost:5432/jejak
+        run: |
+          pytest -q

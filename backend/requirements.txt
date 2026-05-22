@@ -2,3 +2,5 @@ fastapi
 uvicorn[standard]
 pydantic
 pytest
+psycopg2-binary
+prometheus_client

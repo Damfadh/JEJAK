@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: jejak
+      POSTGRES_PASSWORD: jejak_pass
+      POSTGRES_DB: jejak
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgres://jejak:jejak_pass@postgres:5432/jejak
+      API_KEY: ${API_KEY:-}
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata:
+    driver: local
