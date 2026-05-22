@@ -4,13 +4,21 @@ This folder contains a minimal PWA that scans QR codes using the device camera a
 
 Local dev
 
-Install dependencies and serve the `mobile/www` folder:
+Install dependencies and run local PWA server:
 
 ```bash
 cd mobile
 npm install
 npm run start
 ```
+
+Open `http://localhost:4173` and set:
+- API Base URL: `http://127.0.0.1:8000` (or backend URL)
+- API Key: optional, only if backend requires `x-api-key`
+
+Scanner modes:
+- Camera live scan
+- Image upload fallback (`Scan From Image`) for difficult halftone QR captures
 
 Capacitor (Android)
 
@@ -20,6 +28,13 @@ To create the Android scaffold locally (already added in the repo for CI):
 npx cap init "JEJAK Scanner" id.co.jejak.app --web-dir=www
 npx cap add android
 npx cap sync android
+```
+
+Quick commands after first setup:
+
+```bash
+npm run cap:sync
+npm run cap:open
 ```
 
 Open Android Studio: `npx cap open android` and build/sign there, or rely on our CI workflow which can build an APK when the `android/` folder exists and the signing secrets are configured.

@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "echo 'www ready'",
-    "start": "npx serve mobile/www"
+    "build": "echo 'www static bundle ready'",
+    "start": "npx serve www -l 4173",
+    "cap:sync": "npx cap sync android",
+    "cap:open": "npx cap open android"
   },
   "devDependencies": {
     "@capacitor/android": "^8.3.4",
     "@capacitor/cli": "^8.3.4",
-    "@capacitor/core": "^8.3.4"
+    "@capacitor/core": "^8.3.4",
+    "serve": "^14.2.4"
   }
 }
