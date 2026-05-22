@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">JEJAK Scanner</string>
+    <string name="title_activity_main">JEJAK Scanner</string>
+    <string name="package_name">id.co.jejak.app</string>
+    <string name="custom_url_scheme">id.co.jejak.app</string>
+</resources>
