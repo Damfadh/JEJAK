@@ -56,15 +56,15 @@ def main():
 
     log_step(author, "Sign payload", "done", "Signed payload and saved to file", files_changed=[payload_file], next_steps="Generate QR image from payload")
 
-    # Generate QR
-    qr_path = os.path.join(OUTPUT_DIR, "demo_output_qr.png")
-    PayloadEncoder.encode_payload_to_qr(signed_payload, output_path=qr_path)
-    log_step(author, "Generate QR", "done", "Generated QR image from signed payload", files_changed=[qr_path], next_steps="Embed QR into PDF")
+    # Generate halftone QR (default mode untuk watermark tidak kasat mata)
+    qr_path = os.path.join(OUTPUT_DIR, "demo_output_qr_halftone.png")
+    PayloadEncoder.encode_payload_to_halftone_qr(signed_payload, output_path=qr_path)
+    log_step(author, "Generate Halftone QR", "done", "Generated near-invisible halftone QR image from signed payload", files_changed=[qr_path], next_steps="Embed QR into PDF")
 
     # Embed QR into PDF
     signed_pdf = os.path.join(OUTPUT_DIR, "demo_signed.pdf")
-    PDFEncoder.embed_qr_to_pdf(dummy_pdf, qr_path, signed_pdf)
-    log_step(author, "Embed QR into PDF", "done", "Embedded QR into PDF and saved signed PDF", files_changed=[signed_pdf], next_steps="Verify payload locally")
+    PDFEncoder.embed_halftone_qr_to_pdf(dummy_pdf, qr_path, signed_pdf)
+    log_step(author, "Embed Halftone QR into PDF", "done", "Embedded near-invisible QR into PDF and saved signed PDF", files_changed=[signed_pdf], next_steps="Verify payload locally")
 
     # Verify locally using public key
     verifier = DocumentVerifier(pub_b64)

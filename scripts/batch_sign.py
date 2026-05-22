@@ -56,11 +56,11 @@ def sign_batch(csv_path: str, private_key_bytes: bytes, out_zip: str, prefix: st
                     if in_pdf.exists():
                         qr_tmp = Path("tmp_qr_") / f"{doc_id}_qr.png"
                         qr_tmp.parent.mkdir(parents=True, exist_ok=True)
-                        PayloadEncoder.encode_payload_to_qr(signed_payload, str(qr_tmp))
+                        PayloadEncoder.encode_payload_to_halftone_qr(signed_payload, str(qr_tmp))
                         out_pdf = Path(out_zip).with_suffix("")
                         out_pdf = Path(str(out_pdf) + f"_{doc_id}.pdf")
                         try:
-                            PDFEncoder.embed_qr_to_pdf(str(in_pdf), str(qr_tmp), str(out_pdf))
+                            PDFEncoder.embed_halftone_qr_to_pdf(str(in_pdf), str(qr_tmp), str(out_pdf))
                         except Exception:
                             pass
 

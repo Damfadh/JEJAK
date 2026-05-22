@@ -3,7 +3,13 @@ import os
 
 class PDFEncoder:
     @staticmethod
-    def embed_qr_to_pdf(input_pdf_path: str, qr_image_path: str, output_pdf_path: str):
+    def embed_qr_to_pdf(
+        input_pdf_path: str,
+        qr_image_path: str,
+        output_pdf_path: str,
+        qr_size: int = 70,
+        margin: int = 30,
+    ):
         """
         Menyisipkan gambar QR Code ke halaman pertama PDF pada posisi pojok kanan bawah.
         """
@@ -18,9 +24,7 @@ class PDFEncoder:
         # Ambil dimensi halaman (points)
         rect = page.rect
         
-        # Ukuran QR code di PDF (70x70 points, sekitar 2.5cm)
-        qr_size = 70
-        margin = 30
+        # Ukuran dan margin bisa dituning sesuai kebutuhan visibilitas/scanability
         
         # Hitung koordinat pojok kanan bawah (x0, y0, x1, y1)
         x0 = rect.width - qr_size - margin
@@ -54,3 +58,23 @@ class PDFEncoder:
         doc.save(output_path)
         doc.close()
         return output_path
+
+    @staticmethod
+    def embed_halftone_qr_to_pdf(
+        input_pdf_path: str,
+        qr_image_path: str,
+        output_pdf_path: str,
+        qr_size: int = 72,
+        margin: int = 28,
+    ):
+        """
+        Menyisipkan QR halftone (PNG transparan) agar nyaris tidak terlihat.
+        Gunakan bersama `encode_payload_to_halftone_qr`.
+        """
+        return PDFEncoder.embed_qr_to_pdf(
+            input_pdf_path=input_pdf_path,
+            qr_image_path=qr_image_path,
+            output_pdf_path=output_pdf_path,
+            qr_size=qr_size,
+            margin=margin,
+        )
